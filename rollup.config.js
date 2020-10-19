@@ -4,15 +4,13 @@ import typescript from "rollup-plugin-typescript2";
 import sourceMaps from "rollup-plugin-sourcemaps";
 import { terser } from 'rollup-plugin-terser'
 
-const libraryName = "throttle-debounce-ts";
-
 export default {
     input: "./src/index.ts",
     output: [
         {
             format: "umd",
             file: "dist/bundle.umd.js",
-            name: libraryName,
+            name: "throttle-debounce-ts",
             sourcemap: true
         },
         {
