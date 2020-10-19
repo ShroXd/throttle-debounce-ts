@@ -1,24 +1,29 @@
-import typescript from "rollup-plugin-typescript";
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+import typescript from "rollup-plugin-typescript2";
 import sourceMaps from "rollup-plugin-sourcemaps";
+import { terser } from 'rollup-plugin-terser'
 
 export default {
     input: "./src/index.ts",
     plugins: [
+        resolve(),
+        commonjs(),
         typescript({
-            exclude: "node_modules/**",
-            typescript: require("typescript")
+            useTsconfigDeclarationDir: true
         }),
-        sourceMaps()
+        sourceMaps(),
+        terser()
     ],
     output: [
         {
             format: "cjs",
-            file: "lib/bundle.cjs.js",
+            file: "dist/bundle.cjs.js",
             sourcemap: true
         },
         {
             format: "es",
-            file: "lib/bundle.esm.js",
+            file: "dist/bundle.esm.js",
             sourcemap: true
         }
     ]

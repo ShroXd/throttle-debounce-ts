@@ -2,11 +2,12 @@
   "name": "throttle-debounce-ts",
   "version": "0.0.4",
   "description": "Throttle and debounce functions written in typescript",
-  "main": "index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/bundle.umd.js",
+  "module": "dist/bundle.esm.js",
+  "typings": "dist/types/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json --coverage --verbose -u",
-    "build": "tsc",
+    "build": "rollup -c",
     "lint": "tslint -p tsconfig.json",
     "format": "prettier --write --config .prettierrc src/*.ts",
     "prepare": "npm run build",
@@ -16,7 +17,7 @@
     "postversion": "git push && git push --tags"
   },
   "files": [
-    "lib/**/*"
+    "dist/**/*"
   ],
   "keywords": [
     "throttle",
@@ -29,14 +30,17 @@
     "typescript": "^4.0.3"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "@types/jest": "^26.0.14",
     "jest": "^26.5.3",
     "prettier": "^2.1.2",
     "rollup": "^2.32.0",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript": "^1.0.1",
+    "rollup-plugin-typescript2": "^0.28.0",
     "ts-jest": "^26.4.1",
-    "tslib": "^2.0.3",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0"
   }
