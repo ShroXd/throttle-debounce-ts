@@ -6,7 +6,7 @@
   "module": "dist/bundle.esm.js",
   "typings": "dist/types/index.d.ts",
   "scripts": {
-    "test": "jest --config jestconfig.json --coverage --verbose -u",
+    "test": "jest --config jest.config.js --coverage --verbose -u",
     "build": "rollup -c",
     "lint": "tslint -p tsconfig.json",
     "format": "prettier --write --config .prettierrc src/*.ts",
