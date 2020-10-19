@@ -1,6 +1,6 @@
 {
   "name": "throttle-debounce-ts",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Throttle and debounce functions written in typescript",
   "main": "lib/bundle.umd.js",
   "module": "lib/bundle.esm.js",
