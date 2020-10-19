@@ -26,14 +26,15 @@ export const throttle = (options: ThrottleOptions, callback: any) => {
       return;
     }
 
+    clearExistingTimeout();
+    if (!timeoutID && options.trailing) {
+      timeoutID = setTimeout(exec, options.delay);
+    }
+
     const self = this;
     const runTime = Date.now() - lastExec;
 
     function exec() {
-      if (options.trailing) {
-        clearExistingTimeout();
-        timeoutID = setTimeout(exec, options.delay);
-      }
       lastExec = Date.now();
       callback.apply(self, args);
     }
