@@ -1,6 +1,6 @@
 {
   "name": "throttle-debounce-ts",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Throttle and debounce functions written in typescript",
   "main": "index.js",
   "types": "lib/index.d.ts",
