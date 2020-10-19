@@ -9,13 +9,13 @@ export default {
     output: [
         {
             format: "umd",
-            file: "dist/bundle.umd.js",
+            file: "lib/bundle.umd.js",
             name: "throttle-debounce-ts",
             sourcemap: true
         },
         {
             format: "es",
-            file: "dist/bundle.esm.js",
+            file: "lib/bundle.esm.js",
             sourcemap: true
         }
     ],

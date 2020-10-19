@@ -2,12 +2,13 @@
   "name": "throttle-debounce-ts",
   "version": "0.0.6",
   "description": "Throttle and debounce functions written in typescript",
-  "main": "dist/bundle.umd.js",
-  "module": "dist/bundle.esm.js",
-  "typings": "dist/types/index.d.ts",
+  "main": "lib/bundle.umd.js",
+  "module": "lib/bundle.esm.js",
+  "typings": "lib/types/index.d.ts",
   "scripts": {
     "test": "jest --config jest.config.js --coverage --verbose -u",
     "build": "rollup -c",
+    "dev": "rollup -c rollup.config.js -w",
     "lint": "tslint -p tsconfig.json",
     "format": "prettier --write --config .prettierrc src/*.ts",
     "prepare": "npm run build",
@@ -17,7 +18,7 @@
     "postversion": "git push && git push --tags"
   },
   "files": [
-    "dist/**/*"
+    "lib/**/*"
   ],
   "keywords": [
     "throttle",
