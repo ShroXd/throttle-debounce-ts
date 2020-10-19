@@ -27,7 +27,7 @@ export const throttle = (options: ThrottleOptions, callback: any) => {
     }
 
     const self = this;
-    let runTime = Date.now() - lastExec;
+    const runTime = Date.now() - lastExec;
 
     function exec() {
       if (options.trailing) {
