@@ -29,7 +29,7 @@ const throttleFunc = throttle(1000, () => {
 ### Debounce
 
 ```javascript
-import { debounce } from "throttle-debounce-ts;
+import { debounce } from "throttle-debounce-ts";
 
 const debounceFunc = debounce(1000, () => {
     console.log("Hello Debounce!");
@@ -55,12 +55,12 @@ debounceFunc.cancel();
 
 ## API
 
-### 1. throttle(options, callback)
+### throttle(options, callback)
 Returns: `Function`
 
 Throttle execution of a function.
 
-#### options
+#### _options_
 Type: `Number`
 
 A zero-or-greater delay in milliseconds.
@@ -76,17 +76,19 @@ Optional, defaults to false. If it's true, the function will exec on the first c
 __options.trailing__ <br>
 Optional, defaults to false. If it's true, the function will exec after last call.
 
-#### callback
+#### _callback_
 Type: `Function`
 
 A function to be executed after delay milliseconds.
 
-### 2. debounce(options, callback)
+***
+
+### debounce(options, callback)
 Returns: `Function`
 
 Debounce execution of a function.
 
-#### options
+#### _options_
 Type: `Number`
 
 A zero-or-greater delay in milliseconds.
@@ -99,7 +101,7 @@ A zero-or-greater delay in milliseconds.
 __options.leading__ <br>
 Optional, defaults to false. If it's true, the function will exec on the first call.
 
-#### callback
+#### _callback_
 Type: `Function`
 
 A function to be executed after delay milliseconds.
