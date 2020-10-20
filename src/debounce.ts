@@ -1,4 +1,4 @@
-import { DebounceOptions, isDebounceOptions } from "./utils"
+import { DebounceOptions, isDebounceOptions } from './utils';
 
 export function debounce(options: DebounceOptions | number, callback: any) {
   let delay: number;
@@ -19,19 +19,19 @@ export function debounce(options: DebounceOptions | number, callback: any) {
       clearTimeout(timeoutID);
       timeoutID = undefined;
     }
-  }
+  };
 
   const cancel = () => {
     clearExistingTimeout();
     cancelled = true;
-  }
+  };
 
   function wrapper(...args) {
     const self = this;
 
     const exec = () => {
       callback.apply(self, args);
-    }
+    };
 
     if (leading && !leadingExec) {
       exec();
@@ -41,7 +41,7 @@ export function debounce(options: DebounceOptions | number, callback: any) {
     if (cancelled) {
       exec();
       cancelled = false;
-      return
+      return;
     }
 
     clearExistingTimeout();

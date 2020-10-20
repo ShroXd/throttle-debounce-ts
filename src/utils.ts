@@ -10,9 +10,9 @@ export const isThrottleOptions = (arg: ThrottleOptions | number): arg is Throttl
 
 export interface DebounceOptions {
   delay: number;
-  leading?: boolean
+  leading?: boolean;
 }
 
 export const isDebounceOptions = (arg: DebounceOptions | number): arg is DebounceOptions => {
   return (arg as DebounceOptions).leading !== undefined;
-}
+};

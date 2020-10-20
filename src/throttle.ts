@@ -1,5 +1,4 @@
-import { ThrottleOptions, isThrottleOptions } from "./utils";
-
+import { ThrottleOptions, isThrottleOptions } from './utils';
 
 export function throttle(options: ThrottleOptions | number, callback: any) {
   let delay: number;
