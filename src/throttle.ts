@@ -1,8 +1,8 @@
-import { isThrottleOptions, ThrottleOptions } from "./utils";
+import { ThrottleOptions, isThrottleOptions } from "./utils";
 
 
 export function throttle(options: ThrottleOptions | number, callback: any) {
-  let delay;
+  let delay: number;
   const leading = (options as ThrottleOptions).leading || false;
   const trailing = (options as ThrottleOptions).trailing || false;
 
