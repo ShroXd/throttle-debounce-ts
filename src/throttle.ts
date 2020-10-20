@@ -1,12 +1,5 @@
-interface ThrottleOptions {
-  delay: number;
-  leading?: boolean;
-  trailing?: boolean;
-}
+import { isThrottleOptions, ThrottleOptions } from "./utils";
 
-const isThrottleOptions = (arg: ThrottleOptions | number): arg is ThrottleOptions => {
-  return (arg as ThrottleOptions).delay !== undefined;
-};
 
 export function throttle(options: ThrottleOptions | number, callback: any) {
   let delay;
