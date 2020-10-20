@@ -10,8 +10,8 @@ const isThrottleOptions = (arg: ThrottleOptions | number): arg is ThrottleOption
 
 export function throttle(options: ThrottleOptions | number, callback: any) {
   let delay;
-  let leading = (options as ThrottleOptions).leading || false;
-  let trailing = (options as ThrottleOptions).trailing || false;
+  const leading = (options as ThrottleOptions).leading || false;
+  const trailing = (options as ThrottleOptions).trailing || false;
 
   let timeoutID;
   let cancelled: boolean;
