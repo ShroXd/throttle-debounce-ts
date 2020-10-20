@@ -1,13 +1,27 @@
 interface ThrottleOptions {
-  delay?: number;
+  delay: number;
   leading?: boolean;
   trailing?: boolean;
 }
 
-export const throttle = (options: ThrottleOptions, callback: any) => {
+const isThrottleOptions = (arg: ThrottleOptions | number): arg is ThrottleOptions => {
+  return (arg as ThrottleOptions).delay !== undefined;
+};
+
+export function throttle(options: ThrottleOptions | number, callback: any) {
+  let delay;
+  let leading = (options as ThrottleOptions).leading || false;
+  let trailing = (options as ThrottleOptions).trailing || false;
+
   let timeoutID;
   let cancelled: boolean;
-  let lastExec = options.leading ? 0 : Date.now();
+  let lastExec = leading ? 0 : Date.now();
+
+  if (isThrottleOptions(options)) {
+    delay = options.delay;
+  } else {
+    delay = options;
+  }
 
   const clearExistingTimeout = () => {
     if (timeoutID) {
@@ -21,28 +35,34 @@ export const throttle = (options: ThrottleOptions, callback: any) => {
     cancelled = true;
   };
 
-  const wrapper = (...args) => {
+  const trailingExec = (exec) => {
+    if (trailing) {
+      clearExistingTimeout();
+      if (!timeoutID) {
+        timeoutID = setTimeout(exec, delay);
+      }
+    }
+  };
+
+  function wrapper(...args) {
     if (cancelled) {
       return;
     }
 
-    clearExistingTimeout();
-    if (!timeoutID && options.trailing) {
-      timeoutID = setTimeout(exec, options.delay);
-    }
-
     const self = this;
-    const runTime = Date.now() - lastExec;
 
-    function exec() {
+    const exec = () => {
       lastExec = Date.now();
       callback.apply(self, args);
     }
 
-    if (runTime > options.delay) {
+    trailingExec(exec);
+
+    const runTime = Date.now() - lastExec;
+    if (runTime > delay) {
       exec();
     }
-  };
+  }
 
   wrapper.cancel = cancel;
   return wrapper;
