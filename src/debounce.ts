@@ -2,7 +2,7 @@ import { DebounceOptions, isDebounceOptions } from "./utils"
 
 export function debounce(options: DebounceOptions | number, callback: any) {
   let delay: number;
-  let leading = (options as DebounceOptions).leading || false;
+  const leading = (options as DebounceOptions).leading || false;
 
   let timeoutID;
   let cancelled: boolean;
