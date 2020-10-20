@@ -54,7 +54,7 @@ export function throttle(options: ThrottleOptions | number, callback: any) {
     const exec = () => {
       lastExec = Date.now();
       callback.apply(self, args);
-    }
+    };
 
     trailingExec(exec);
 
@@ -66,4 +66,4 @@ export function throttle(options: ThrottleOptions | number, callback: any) {
 
   wrapper.cancel = cancel;
   return wrapper;
-};
+}
